@@ -1,0 +1,154 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>NightCrawler</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <!-- Firebase app, database-->
+    <script src="https://www.gstatic.com/firebasejs/5.5.9/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.5.9/firebase-database.js"></script>
+    <script src="config.js"></script>
+
+</head>
+
+<body>
+        <div class="pos-f-t" style="width: 400px;" class="fixed-top">
+            <div class="collapse" id="navbarToggleExternalContent">
+                <div class="bg-dark p-4">
+    
+                    <h4 class="text-white">Settings</h4>
+                    <form>
+                        <div class="form-row align-items-center">
+                            <div class="col-auto">
+                                <label class="sr-only" for="inlineFormInput">Name</label>
+                                <input type="text" class="form-control mb-2" id="inlineFormInput" placeholder="Name">
+                            </div>
+                            <div class="col-auto">
+                                <label class="sr-only" for="inlineFormInputGroup">Username</label>
+                                <div class="input-group mb-2">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">Tel</div>
+                                    </div>
+                                    <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Emergency Contact">
+                                </div>
+                            </div>
+                            <div class="col-auto">
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="checkbox" id="autoSizingCheck">
+                                    <label class="form-check-label" for="autoSizingCheck">
+                                        Remember me
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-auto">
+                                <button type="submit" id="logInBnt" class="btn btn-primary mb-2">Log In</button>
+                            </div>
+                        </div>
+                    </form>
+             <!--   <span class="text-muted">User Options</span>
+            <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                    <label class="form-check-label" for="defaultCheck1">
+                        Option One
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck2" disabled>
+                    <label class="form-check-label" for="defaultCheck2">
+                        Option Two
+                    </label> -->
+              </div> 
+        </div>
+        <nav class="navbar navbar-dark bg-dark">
+            <h2 style="background-color: transparent; color: rgb(255, 255, 255);" class="text-center"><strong><i class="fa fa-moon"></i>NightCrawler</strong></h2>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent"
+                aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </nav>
+    </div>
+
+    <div class="jumbotron jumbotron-fluid">
+        <div class="col-md-12">
+            <div id="search-conatiner">
+                <input id="mapsearch" type="text" placeholder="  Where to..?" style="width: 340px">
+                <button type="submit" id="directions-btn" class="btn btn-primary mb-2">Nav</button>
+            </div>
+            <div id="curnav">
+                <button type="submit" id="currentposition" class="btn btn-primary mb-2">From current position?</button>
+                <button type="submit" id="back" class="btn btn-primary mb-2">Go back</button>
+            </div>
+            <form id="displaygroup" role="form">
+                <div class="form-group">
+                    <input id="origin-input" class="controls" type="text" placeholder="Enter an origin location">
+                    <input id="destination-input" class="controls" type="text" placeholder="Enter a destination location">
+                </div>
+                <div id="mode-selector" class="controls">
+                    <input type="radio" name="type" id="changemode-walking" checked="checked">
+                    <label for="changemode-walking">Walking</label>
+                    <input type="radio" name="type" id="changemode-transit">
+                    <label for="changemode-transit">Transit</label>
+                    <input type="radio" name="type" id="changemode-driving">
+                    <label for="changemode-driving">Driving</label>
+                </div>
+            </form>
+
+            <div class="mapFrame">
+
+
+                      <!-- heatMap Addition-->
+                      <div id="floating-panel">
+                            <button  id = "toggleMap" >Toggle Heatmap</button>
+                    </div>   
+                 <!-- heatMap Addition ^^-->  
+
+                <div id="map" style="width:375px;height:550px"></div>
+
+            </div>
+            <button type="submit" class="btn btn-danger" id="run-search"><i class="fa fa-exclamation"></i>SOS</button>
+
+            <br>
+        </div>
+        <footer>
+            <h6 class="text-center" class="fixed-bottom"><small>Developed by 4 awesome people!<i class="fa fa-heart"></i></small></h6>
+        </footer>
+        <div class="popup-bg"></div>
+
+
+        <div class="round-button" id="sosi-button">
+            <div class="round-button-circle">
+                <a href="tel: 911">CALL 911</a>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-danger popup-button" id="segund"><a href="lyft://">Lyft</a></button>
+        <button type="submit" class="btn btn-danger popup-button" id="tercer"><a href="" id="emergency-link">Emergency Contact</a></button>
+
+    </div>
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <script type="text/javascript">
+
+      var JSLink = "https://maps.googleapis.com/maps/api/js?key=" + config.google_map.key + "&libraries=places,visualization&callback=initMap";
+        var JSElement = document.createElement('script');
+        JSElement.src = JSLink;
+        JSElement.onload = OnceLoaded;
+        document.getElementsByTagName('head')[0].appendChild(JSElement);
+        function OnceLoaded() {}
+    </script>
+
+    <script src="assets/js/js.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,358 @@
+
+ @media only screen 
+        and (min-device-width : 375px) 
+        and (max-device-width : 812px) 
+        and (-webkit-device-pixel-ratio : 3)
+        and (orientation : portrait) { body{
+            
+            width: auto;
+            height: auto;
+            } }
+body{
+    width: 400px;
+    height:100%; 
+    background-color: rgb(40, 122, 204);
+    background-blend-mode:multiply;
+
+    /* background-size: contain; */
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  
+}
+
+/*HeatMap CSS*/
+
+#map {
+    height: 100%;
+
+}
+  /* Optional: Makes the sample page fill the window. */
+  html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  body {
+      margin: 0 auto;
+  }
+  #floating-panel {
+    position: absolute;
+    top: 85%;
+    left: 5%;
+    z-index: 5;
+    text-align: center;
+    font-family: 'Roboto','sans-serif';
+    line-height: 30px;
+  }
+
+  button{
+    background-color: rgb(75, 126, 207);
+    color: white;
+  }
+
+  /*heatMapCSS ^^^^*/
+
+.jumbotron-fluid{
+    background-color: rgb(241, 205, 245);
+    width:100%;
+    height:100%; 
+    background-image: url("../images/backgroundmap.png");
+    background-blend-mode:multiply;
+    background-position: right;
+}
+#titleHeader{
+    padding-bottom: 0px;
+}
+
+.form-group{
+    font-weight: 500;
+    font-display: bold;
+    color: rgb(0, 0, 0);
+}
+
+
+.fa-moon{
+    color: rgb(0,110,159);
+}
+
+#run-search{
+    margin-top: 8px;
+    height: 40px;   
+    width: 100%;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    display: block;
+    float: right;
+    border-radius: 20px;
+    box-shadow: 0 4px rgb(39, 90, 138);
+    
+}
+#run-search:hover{
+    color: rgb(253, 253, 253);
+    background-color: rgb(143,40,48);
+    box-shadow: 0 2px rgb(39, 90, 138);
+
+}
+#run-search:active{
+    color: rgb(250, 250, 250);
+    background-color: rgb(143,40,48);
+    box-shadow: 0 0px rgb(39, 90, 138);
+
+
+}
+
+.fa-ethereum{
+    color:rgb(0,110,159);
+}
+.fa-heart{
+    color: pink;
+}
+footer{
+    margin-top:30px;
+    font-size: 8px;
+    box-shadow: 0 2px rgb(39, 90, 138);
+    width: 100%;
+    background-color: rgb(0,110,159);
+    position: bottom;
+    text-align: center;
+    color: rgb(255, 255, 255);
+    position: absolute;
+    z-index: 1;
+}
+#logInBnt{
+    background-color:rgb(143,40,48);
+
+}
+.mapFrame{
+    margin-right:20px;
+}
+ .popup-bg {
+     position: fixed;
+     top:0;
+     left:0;
+     display:none;
+     width:100%;
+     height:100%;
+     background:#000;
+     opacity:0.6;
+     z-index:998;
+ }
+ .popup-buttons {
+     position:fixed;
+     top:50%;
+     left:50px;
+     display:none;
+     width:100%;
+     height:100%;
+     z-index: 999;
+ }
+.controls {
+    margin-top: 10px;
+    border: 1px solid transparent;
+    border-radius: 2px 0 0 2px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    height: 32px;
+    outline: none;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+#origin-input,
+#destination-input {
+    background-color: #fff;
+    font-family: Roboto;
+    font-size: 15px;
+    font-weight: 300;
+    margin-left: 12px;
+    padding: 0 11px 0 13px;
+    text-overflow: ellipsis;
+    width: 170px;
+    display:none;
+}
+
+#origin-input:focus,
+#destination-input:focus {
+    border-color: #4d90fe;
+    z-index: 2;
+}
+
+#map-canvas{
+    box-shadow: 0 1px 20px #000;
+    width: 100%;
+    height:640px;
+}
+#primer{
+    margin-top: 30px;
+    background-color: red;
+    color: white;
+    border-radius: 100px;
+    border-radius: 48%; 
+    height:165px;   
+    width: 195px;
+   margin-left: 85px;
+   margin-bottom: 100px;
+   box-shadow: 0 0px 20px rgb(61, 3, 37);
+}
+a{
+    color: white;
+}
+#segund{
+    margin-left: 35px;
+    background-color: rgb(234,11,140);
+    box-shadow: 0 0px 20px rgb(61, 3, 37);
+    padding-left:50px;
+    padding-right:50px;
+
+}
+#tercer{
+    margin-left: 20px;
+    background-color: rgb(0,110,159);
+    box-shadow: 0 0px 20px rgb(3, 7, 61);
+    /* padding-left:45px;
+    padding-right:45px; */
+    color: white;
+    border:none;
+
+}
+
+#mode-selector {
+    color: #fff;
+    background-color: #4d90fe;
+    padding: 5px 11px 0px 11px;
+    z-index: 0;
+    position: absolute;
+    margin-left: -353px;
+    margin-top: 55px;
+    display:none;
+    top: 36px !important;
+}
+
+#mode-selector label {
+    font-family: Roboto;
+    font-size: 13px;
+    font-weight: 300;
+}
+
+.round-button {
+    width:200px;
+}
+.round-button-circle {
+    width: 100%;
+    height:0;
+    padding-bottom: 100%;
+    border-radius: 50%;
+    border:10px solid #cfdcec;
+    overflow:hidden;
+    box-sizing: unset;
+    background: #f55;
+    box-shadow: 0 0 3px gray;
+}
+.round-button-circle:hover {
+    background:#f00;
+}
+.round-button a {
+    display:block;
+    float:left;
+    width:100%;
+    padding-top:50%;
+    padding-bottom:50%;
+    line-height:1em;
+    margin-top:-0.5em;
+
+    text-align:center;
+    color:#e2eaf3;
+    font-family:Verdana;
+    font-size:1.2em;
+    font-weight:bold;
+    text-decoration:none;
+}
+
+#sosi-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -100px 0 0 -100px;
+    display: none;
+    z-index: 1000;
+}
+
+.jumbotron-fluid {
+    position: relative;
+}
+#segund {
+    display:none;
+    z-index: 1000;
+    position: absolute;
+    left:20px;
+    bottom:100px;
+    width:150px;
+}
+#tercer {
+    display:none;
+    z-index: 1000;
+    position: absolute;
+    right:20px;
+    bottom:100px;
+    width:150px;
+}
+.popup-button a:hover {
+    color:white;
+    text-decoration: none;
+    font-weight:bold;
+}
+.popup-button:hover {
+
+}
+ #search-conatiner {
+     position:absolute;
+     z-index:990;
+     left: 30px;
+     right: 50px;
+     width: 300px;
+ }
+ #directions-btn {
+     position: absolute;
+     top: 5px;
+     right: 0;
+     padding: 2px 10px;
+ }
+ #mapsearch{
+     width: 240px !important;
+     margin-top: 5px;
+     margin-bottom:50px;
+ }
+ #destination-input {
+     left: 182px !important;
+ }
+ #curnav{
+     position:absolute;
+     top:50px;
+     left: 26px;
+     z-index:997;
+     display:none;
+     width: 90%;
+ }
+ #displaygroup{
+     display:none;
+ }
+#currentposition{
+    background-color: #4d90fe;
+    padding: 5px 20px 5px 20px;
+    font-size: 14px;
+    display: none;
+}
+ #back{
+     background-color: #4d90fe;
+     padding: 5px 20px 5px 20px;
+     font-size: 14px;
+     position:absolute;
+     top: 0px;
+     right: 5px;
+ }
+
+ .jumbotron-fluid
+ {
+     margin-bottom: 0px;
+     padding: 10px 0;
+     height: 620px;
+ }
